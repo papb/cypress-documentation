@@ -196,7 +196,7 @@ Downgrading your account will **not** result in loss of access to your
 Dashboard.
 
 However, it will make your Dashboard subject to the limitations of your new
-plan. For example, downgrading to the _Seed_ plan will limit data retention to
+plan. For example, downgrading to the _Free_ plan will limit data retention to
 30 days and test results to 500 per billing period.
 
 ## <Icon name="angle-right"></Icon> What happens once I reach the test results limit?
