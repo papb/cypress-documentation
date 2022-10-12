@@ -87,108 +87,84 @@
               "title": "Introduction to Component Testing"
             },
             {
-              "title": "Writing Your First Component Test",
-              "slug": "writing-your-first-component-test"
-            },
-            {
-              "title": "Who Are You Testing For?",
-              "slug": "devs-vs-users"
-            },
-            {
-              "title": "Vue Component Testing"
-            },
-            {
-              "title": "Quickstart: Vue",
-              "slug": "quickstart-vue"
-            },
-            {
-              "title": "Mounting Components",
-              "slug": "mounting-vue"
-            },
-            {
-              "title": "Testing Vue Components",
-              "slug": "testing-vue"
-            },
-            {
-              "title": "Testing Vue Components with Emitted Events",
-              "slug": "events-vue"
-            },
-            {
-              "title": "Testing Vue Components with Slots",
-              "slug": "slots-vue"
-            },
-            {
-              "title": "Custom Mount Commands and Styles",
-              "slug": "custom-mount-vue"
+              "title": "Overview",
+              "slug": "overview"
             },
             {
               "title": "React Component Testing"
             },
             {
-              "title": "Quickstart: React",
+              "title": "Introduction",
+              "slug": "react"
+            },
+            {
+              "title": "React Quickstart",
               "slug": "quickstart-react"
             },
             {
-              "title": "Mounting Components",
-              "slug": "mounting-react"
+              "title": "React API",
+              "slug": "api-react"
             },
             {
-              "title": "Testing React Components",
-              "slug": "testing-react"
-            },
-            {
-              "title": "Testing React Components with Events",
-              "slug": "events-react"
-            },
-            {
-              "title": "Custom Mount Commands for React",
-              "slug": "custom-mount-react"
+              "title": "React Examples",
+              "slug": "examples-react"
             },
             {
               "title": "Angular Component Testing"
             },
             {
-              "title": "Quickstart: Angular",
+              "title": "Introduction",
+              "slug": "angular"
+            },
+            {
+              "title": "Angular Quickstart",
               "slug": "quickstart-angular"
             },
             {
-              "title": "Mounting Components",
-              "slug": "mounting-angular"
+              "title": "Angular API",
+              "slug": "api-angular"
             },
             {
-              "title": "Testing Angular Components",
-              "slug": "testing-angular"
+              "title": "Angular Examples",
+              "slug": "examples-angular"
             },
             {
-              "title": "Testing Angular Components with Emitted Events",
-              "slug": "events-angular"
+              "title": "Vue Component Testing"
             },
             {
-              "title": "Testing Angular Components with Slots",
-              "slug": "slots-angular"
+              "title": "Introduction",
+              "slug": "vue"
             },
             {
-              "title": "Custom Mount Commands for Angular",
-              "slug": "custom-mount-angular"
+              "title": "Vue Quickstart",
+              "slug": "quickstart-vue"
+            },
+            {
+              "title": "Vue API",
+              "slug": "api-vue"
+            },
+            {
+              "title": "Vue Examples",
+              "slug": "examples-vue"
             },
             {
               "title": "Svelte Component Testing"
             },
             {
-              "title": "Quickstart: Svelte",
+              "title": "Introduction",
+              "slug": "svelte"
+            },
+            {
+              "title": "Svelte Quickstart",
               "slug": "quickstart-svelte"
             },
             {
-              "title": "Mounting Components",
-              "slug": "mounting-svelte"
+              "title": "Svelte API",
+              "slug": "api-svelte"
             },
             {
-              "title": "Testing Svelte Components",
-              "slug": "testing-svelte"
-            },
-            {
-              "title": "Testing Svelte Components with Emitted Events",
-              "slug": "events-svelte"
+              "title": "Svelte Examples",
+              "slug": "examples-svelte"
             },
             {
               "title": "Diving Deeper"
