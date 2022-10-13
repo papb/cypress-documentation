@@ -1,5 +1,6 @@
 ---
 title: 'Angular API'
+sidebar_position: 30
 ---
 
 ## Methods
@@ -43,7 +44,7 @@ import { mount } from 'cypress/angular'
   </tr>
   <tr>
     <td>Type</td>
-    <td>Type<T> | string</td>
+    <td>Type&lt;T&gt; | string</td>
   </tr>
 </table>
 
@@ -206,7 +207,7 @@ cy.get('@clickedSpy).should('have.been.called')
   </tr>
   <tr>
     <td>Type</td>
-    <td>Partial&lt;{[P in keyof T]: T[P];}&gt; (optional)</td>
+    <td>Partial&lt;&#123;[P in keyof T]: T[P];&#125;&gt; (optional)</td>
   </tr>
   <tr>
     <td>Default</td>

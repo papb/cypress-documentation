@@ -1,5 +1,7 @@
 ---
 title: 'Vue Component Testing'
+sidebar_label: 'Introduction'
+sidebar_position: 10
 ---
 
 ## Framework Support
@@ -13,7 +15,7 @@ Cypress Component Testing supports Vue 2+ in a variety of different frameworks:
 
 ## Tutorial
 
-Visit the [Vue Quickstart Guide](/guides/component-testing/quickstart-vue) for a
+Visit the [Vue Quickstart Guide](/guides/component-testing/vue/quickstart) for a
 step-by-step tutorial.
 
 ## Installation
@@ -38,7 +40,7 @@ npx cypress open
 The Cypress Launchpad will guide you through configuring your project.
 
 For a step-by-step guide through the installation wizard, refer to the
-[Configure Component Testing](/guides/component-testing/quickstart-vue#Configuring-Component-Testing)
+[Configure Component Testing](/guides/component-testing/vue/quickstart#Configuring-Component-Testing)
 section of the Vue quickstart guide.
 
 ## Usage
@@ -61,22 +63,16 @@ While you can use the `mount` function in your tests, we recommend using
 [custom command](/api/cypress-api/custom-commands) in the
 **cypress/support/component.js** file:
 
-<code-group>
-<code-block label="cypress/support/component.js" active>
-
-```ts
+```ts title=cypress/support/component.js
 import { mount } from 'cypress/vue'
 
 Cypress.Commands.add('mount', mount)
 ```
 
-</code-block>
-</code-group>
-
 This allows you to use `cy.mount()` in any component test without having to
 import the framework-specific mount command, as well as customizing it to fit
 your needs. For more info, visit the
-[Custom Mount Commands](/guides/component-testing/examples-vue#Custom-Mount-Commands)
+[Custom Mount Commands](/guides/component-testing/vue/examples#Custom-Mount-Commands)
 section in the Vue examples.
 
 ### Using `cy.mount()`
@@ -113,9 +109,8 @@ it('clicking + fires a change event with the incremented value', () => {
 
 You can pass props and events to a component by setting `props` in the options:
 
-<code-group>
-
-<code-block label="Vue 3" active>
+<Tabs>
+<TabItem value="Vue 3">
 
 ```js
 cy.mount(Stepper, {
@@ -126,8 +121,8 @@ cy.mount(Stepper, {
 })
 ```
 
-</code-block>
-<code-block label="Vue 2" active>
+</TabItem>
+<TabItem value="Vue 2">
 
 ```js
 cy.mount(Stepper, {
@@ -138,15 +133,15 @@ cy.mount(Stepper, {
 })
 ```
 
-</code-block>
-</code-group>
+</TabItem>
+</Tabs>
 
 ## Using Slots
 
 ### Default Slot
 
-<code-group>
-<code-block label="DefaultSlot.cy.js" active>
+<Tabs>
+<TabItem value="DefaultSlot.cy.js">
 
 ```js
 import DefaultSlot from './DefaultSlot.vue'
@@ -163,8 +158,8 @@ describe('<DefaultSlot />', () => {
 })
 ```
 
-</code-block>
-<code-block label="DefaultSlot.cy.jsx (JSX)">
+</TabItem>
+<TabItem value="DefaultSlot.cy.jsx (JSX)">
 
 ```jsx
 import DefaultSlot from './DefaultSlot.vue'
@@ -177,8 +172,8 @@ describe('<DefaultSlot />', () => {
 })
 ```
 
-</code-block>
-<code-block label="DefaultSlot.vue">
+</TabItem>
+<TabItem value="DefaultSlot.vue">
 
 ```html
 <template>
@@ -192,14 +187,13 @@ describe('<DefaultSlot />', () => {
 <script setup></script>
 ```
 
-</code-block>
-</code-group>
+</TabItem>
+</Tabs>
 
 ### Named Slot
 
-<code-group>
-
-<code-block label="NamedSlot.cy.js" active>
+<Tabs>
+<TabItem value="NamedSlot.cy.js">
 
 ```js
 import NamedSlot from './NamedSlot.vue'
@@ -219,8 +213,8 @@ describe('<NamedSlot />', () => {
 })
 ```
 
-</code-block>
-<code-block label="NamedSlot.cy.jsx (JSX)">
+</TabItem>
+<TabItem value="NamedSlot.cy.jsx (JSX)">
 
 ```jsx
 import NamedSlot from './NamedSlot.vue'
@@ -238,9 +232,8 @@ describe('<NamedSlot />', () => {
 })
 ```
 
-</code-block>
-
-<code-block label="NamedSlot.vue">
+</TabItem>
+<TabItem value="NamedSlot.vue">
 
 ```html
 <template>
@@ -257,8 +250,8 @@ describe('<NamedSlot />', () => {
 <script setup></script>
 ```
 
-</code-block>
-</code-group>
+</TabItem>
+</Tabs>
 
 For more info on testing Vue components with slots, refer to the
 [Vue Test Utils Slots guide](https://test-utils.vuejs.org/guide/advanced/slots.html).
@@ -315,8 +308,8 @@ chained using `cy.then` instead of `cy.should`, we may run into the kinds of
 issues you have in Vue Test Utils tests where you have to use `await` frequently
 in order to make sure the DOM has updated or any reactive events have fired.
 
-<code-group>
-<code-block label="With emitted" active>
+<Tabs>
+<TabItem value="With emitted">
 
 ```js
 cy.mount(Stepper, { props: { initial: 100 } })
@@ -327,8 +320,8 @@ cy.get('@vue').should((wrapper) => {
 })
 ```
 
-</code-block>
-<code-block label="With spies">
+</TabItem>
+<TabItem value="With spies">
 
 ```js
 const onChangeSpy = cy.spy().as('onChangeSpy')
@@ -339,7 +332,8 @@ cy.get(incrementSelector).click()
 cy.get('@onChangeSpy').should('have.been.calledWith', '101')
 ```
 
-</code-block>
+</TabItem>
+</Tabs>
 
 Regardless of our recommendation to use spies instead of the internal Vue Test
 Utils API, you may decide to continue using `emitted` as it _automatically_

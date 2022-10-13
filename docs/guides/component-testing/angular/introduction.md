@@ -1,5 +1,7 @@
 ---
 title: 'Angular Component Testing'
+sidebar_label: 'Introduction'
+sidebar_position: 10
 ---
 
 ## Framework Support
@@ -9,7 +11,7 @@ Cypress Component Testing supports Angular 13+.
 ## Tutorial
 
 Visit the
-[Angular Quickstart Guide](/guides/component-testing/quickstart-angular) for a
+[Angular Quickstart Guide](/guides/component-testing/angular/quickstart) for a
 step-by-step tutorial.
 
 ## Installation
@@ -34,7 +36,7 @@ npx cypress open
 The Cypress Launchpad will guide you through configuring your project.
 
 For a step-by-step guide through the installation wizard, refer to the
-[Configure Component Testing](/guides/component-testing/quickstart-angular#Configuring-Component-Testing)
+[Configure Component Testing](/guides/component-testing/angular/quickstart#Configuring-Component-Testing)
 section of the Angular quickstart guide.
 
 ## Usage
@@ -54,22 +56,16 @@ While you can use the `mount` function in your tests, we recommend using
 [custom command](/api/cypress-api/custom-commands) in the
 **cypress/support/component.ts** file:
 
-<code-group>
-<code-block label="cypress/support/component.ts" active>
-
-```ts
+```ts title=cypress/support/component.ts
 import { mount } from 'cypress/angular'
 
 Cypress.Commands.add('mount', mount)
 ```
 
-</code-block>
-</code-group>
-
 This allows you to use `cy.mount()` in any component test without having to
 import the framework-specific mount command, as well as customizing it to fit
 your needs. For more info, visit the
-[Custom Mount Commands](/guides/component-testing/examples-angular#Custom-Mount-Commands)
+[Custom Mount Commands](/guides/component-testing/angular/examples#Custom-Mount-Commands)
 section in the Angular examples.
 
 ### Using `cy.mount()`
@@ -88,7 +84,7 @@ it('mounts', () => {
 ### Passing Data to a Component
 
 You can pass inputs and outputs to a component by setting
-[componentProperties](/guides/component-testing/api-angular#ComponentProperties)
+[componentProperties](/guides/component-testing/angular/api/#ComponentProperties)
 in the options:
 
 ```ts
@@ -115,7 +111,7 @@ cy.mount(ComponentThatFetchesData, {
 ```
 
 View the
-[Default Declarations, Providers, or Imports](/guides/component-testing/examples-angular#Default-Declarations-Providers-or-Imports)
+[Default Declarations, Providers, or Imports](/guides/component-testing/angular/examples#Default-Declarations-Providers-or-Imports)
 to set up common options in a custom `cy.mount()` command so these don't have to
 be repeated for each test.
 
@@ -219,16 +215,14 @@ it('clicking + fires a change event with the incremented value', () => {
 })
 ```
 
-<Alert type="warning">
+:::caution
 
 The `autoSpyOutput` flag only works when passing in a component to the mount
 function. It currently does not work with the template syntax.
 
-</Alert>
+:::
 
-<Alert type="warning">
+:::caution
 
 `autoSpyOutput` is an **experimental feature** and could be removed or changed
 in the future
-
-</Alert>

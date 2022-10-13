@@ -1,5 +1,7 @@
 ---
 title: 'Svelte Component Testing'
+sidebar_label: 'Introduction'
+sidebar_position: 10
 ---
 
 ## Framework Support
@@ -12,7 +14,7 @@ frameworks:
 
 ## Tutorial
 
-Visit the [Svelte Quickstart Guide](/guides/component-testing/quickstart-svelte)
+Visit the [Svelte Quickstart Guide](/guides/component-testing/svelte/quickstart)
 for a step-by-step tutorial.
 
 ## Installation
@@ -37,7 +39,7 @@ npx cypress open
 The Cypress Launchpad will guide you through configuring your project.
 
 For a step-by-step guide through the installation wizard, refer to the
-[Configure Component Testing](/guides/component-testing/quickstart-svelte#Configuring-Component-Testing)
+[Configure Component Testing](/guides/component-testing/svelte/quickstart#Configuring-Component-Testing)
 section of the Svelte quickstart guide.
 
 ## Usage
@@ -57,22 +59,16 @@ While you can use the `mount` function in your tests, we recommend using
 [custom command](/api/cypress-api/custom-commands) in the
 **cypress/support/component.js** file:
 
-<code-group>
-<code-block label="cypress/support/component.js" active>
-
-```ts
+```ts title=cypress/support/component.js
 import { mount } from 'cypress/svelte'
 
 Cypress.Commands.add('mount', mount)
 ```
 
-</code-block>
-</code-group>
-
 This allows you to use `cy.mount()` in any component test without having to
 import the framework-specific mount command, as well as customizing it to fit
 your needs. For more info, visit the
-[Custom Mount Commands](/guides/component-testing/examples-svelte#Custom-Mount-Commands)
+[Custom Mount Commands](/guides/component-testing/svelte/examples#Custom-Mount-Commands)
 section in the Svelte examples.
 
 ### Using `cy.mount()`

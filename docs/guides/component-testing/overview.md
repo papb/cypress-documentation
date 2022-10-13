@@ -1,10 +1,6 @@
 ---
-<<<<<<<< HEAD:docs/guides/component-testing/introduction/writing-your-first-component-test.mdx
-title: Writing Your First Component Test
-sidebar_position: 10
-========
-title: Cypress Component Testing
->>>>>>>> origin/react-ct-guide-rework:content/guides/component-testing/overview.md
+title: Component Testing Overview
+sidebar_position: 1
 ---
 
 <CtBetaAlert></CtBetaAlert>
@@ -19,19 +15,8 @@ Cypress will render it in**. Separating the components of your website enables
 you to further break down work into more manageable chunks and ultimately
 results in components built mindfully.
 
-<<<<<<<< HEAD:docs/guides/component-testing/introduction/writing-your-first-component-test.mdx
-<DocsVideo src="/img/vuetify-color-picker-example.webm" />
-
-<p style={{ fontSize: 0.85 + "rem", textAlign: "center" }}>
-  <a href="https://vuetifyjs.com/en/components/color-pickers/">Vuetify's</a>{" "}
-  VColorPicker tests, after being moved to Cypress from Jest.
-</p>
-========
-<video loop="true" controls autoplay="true" style="border-radius: 8px; border: 1px solid #eaeaea;">
-  <source src="/img/vuetify-color-picker-example.webm" type="video/webm">
-</video>
-<p style="font-size: 0.85rem; text-align: center;"><a href="https://vuetifyjs.com/en/components/color-pickers/">Vuetify's</a> VColorPicker tests, after being moved to Cypress from Jest.</p>
->>>>>>>> origin/react-ct-guide-rework:content/guides/component-testing/overview.md
+<DocsVideo src="/img/vuetify-color-picker-example.webm"></DocsVideo>
+<p style={{fontSize: '0.85rem', textAlign: 'center'}}><a href="https://vuetifyjs.com/en/components/color-pickers/">Vuetify's</a> VColorPicker tests, after being moved to Cypress from Jest.</p>
 
 ### Supported Frameworks
 

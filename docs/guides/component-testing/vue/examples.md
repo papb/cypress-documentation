@@ -1,5 +1,6 @@
 ---
 title: Vue Examples
+sidebar_position: 40
 ---
 
 ## Custom Mount Commands
@@ -11,17 +12,11 @@ function in your tests, we recommend using [`cy.mount()`](/api/commands/mount),
 which is a [custom command](/api/cypress-api/custom-commands) that is defined in
 the **cypress/support/component.js** file:
 
-<code-group>
-<code-block label="cypress/support/component.js" active>
-
-```js
+```js title=cypress/support/component.js
 import { mount } from 'cypress/vue'
 
 Cypress.Commands.add('mount', mount)
 ```
-
-</code-block>
-</code-group>
 
 This allows you to use `cy.mount()` in any test without having to import the
 `mount()` function in each and every spec file.
@@ -38,11 +33,10 @@ examples can be adjusted for most other providers that you will need to support.
 Most applications will have state management or routing. Both of these are Vue
 plugins.
 
-<code-group>
+<Tabs>
+<TabItem value="Code">
 
-<code-block label="cypress/support/component.js " active>
-
-```js
+```js title=cypress/support/component.js
 import { createPinia } from 'pinia' // or Vuex
 import { createI18n } from 'vue-i18n'
 import { mount } from 'cypress/vue'
@@ -75,9 +69,8 @@ Cypress.Commands.add('mount', (component, ...args) => {
 })
 ```
 
-</code-block>
-
-<code-block label="With JSX">
+</TabItem>
+<TabItem value="JSX">
 
 ```jsx
 import { createPinia } from 'pinia' // or Vuex
@@ -117,9 +110,8 @@ Cypress.Commands.add('mount', (component, ...args) => {
 })
 ```
 
-</code-block>
-
-</code-group>
+</TabItem>
+</Tabs>
 
 ### Replicating the expected Component Hierarchy
 
@@ -139,9 +131,8 @@ straightforward.
 You'll also need to replicate the plugin setup steps from the Vuetify docs for
 everything to compile.
 
-<code-group>
-
-<code-block label="cypress/support/component.js" active>
+<Tabs>
+<TabItem value="Code">
 
 ```js
 import Vuetify from 'vuetify/lib'
@@ -165,9 +156,8 @@ Cypress.Commands.add('mount', (component, ...args) => {
 })
 ```
 
-</code-block>
-
-<code-block label="With JSX">
+</TabItem>
+<TabItem value="JSX">
 
 ```jsx
 import Vuetify from 'vuetify/lib'
@@ -196,9 +186,8 @@ Cypress.Commands.add('mount', (component, ...args) => {
 })
 ```
 
-</code-block>
-
-</code-group>
+</TabItem>
+</Tabs>
 
 At this point, you should be able to setup a complex application and mount
 components that use all of Vue's language features.
@@ -210,8 +199,8 @@ Congrats! Happy building. 🎉
 To use Vue Router, create a command to register the plugin and pass in a custom
 implementation of the router via the options param:
 
-<code-group-vue2-vue3>
-<template #vue2>
+<Tabs>
+<TabItem value="Vue 2">
 
 ```js
 import { mount } from 'cypress/vue'
@@ -231,10 +220,8 @@ Cypress.Commands.add('mount', (component, options = {}) => {
 })
 ```
 
-<code-group>
-<code-block label="TypeScript Typings" active>
 
-```ts
+```ts title=Typings
 import { mount } from 'cypress/vue'
 import VueRouter from 'vue-router'
 
@@ -254,9 +241,6 @@ declare global {
   }
 }
 ```
-
-</code-group>
-</code-block>
 
 Usage:
 
@@ -289,8 +273,8 @@ it('login link should be active when url is "/login"', () => {
 })
 ```
 
-</template>
-<template #vue3>
+</TabItem>
+<TabItem value="Vue 3">
 
 ```js
 import { mount } from 'cypress/vue'
@@ -321,10 +305,8 @@ Cypress.Commands.add('mount', (component, options = {}) => {
 })
 ```
 
-<code-group>
-<code-block label="TypeScript Typings" active>
 
-```ts
+```ts title=Typings
 import { mount } from 'cypress/vue'
 import { Router } from 'vue-router'
 
@@ -344,9 +326,6 @@ declare global {
   }
 }
 ```
-
-</code-group>
-</code-block>
 
 Usage:
 
@@ -384,16 +363,16 @@ it('login link should be active when url is "/login"', () => {
 })
 ```
 
-</template>
-</code-group-vue2-vue3>
+</TabItem>
+</Tabs>
 
 ### Vuex
 
 To use a component that uses [Vuex](https://vuex.vuejs.org/), create a `mount`
 command that configures a Vuex store for your component:
 
-<code-group-vue2-vue3>
-<template #vue2>
+<Tabs>
+<TabItem value="Vue 2">
 
 ```js
 import { mount } from 'cypress/vue'
@@ -415,18 +394,15 @@ Cypress.Commands.add('mount', (component, options = {}) => {
 })
 ```
 
-<Alert type="info">
+:::info
 
 The `getStore` method is a factory method that initializes Vuex and creates a
 new store. It is important that the store be initialized with each new test to
 ensure changes to the store don't affect other tests.
 
-</Alert>
+:::
 
-<code-group>
-<code-block label="TypeScript Typings" active>
-
-```ts
+```ts title=Typings
 import { mount } from 'cypress/vue'
 import { Store } from 'vuex'
 
@@ -450,9 +426,6 @@ declare global {
 }
 ```
 
-</code-group>
-</code-block>
-
 Usage:
 
 ```js
@@ -469,15 +442,15 @@ it.only('User profile should display user name', () => {
   store.commit('setUser', user)
 
   cy.mount(UserProfile, {
-    store,
+    store
   })
 
   cy.get('div.name').should('have.text', user.name)
 })
 ```
 
-</template>
-<template #vue3>
+</TabItem>
+<TabItem value="Vue 3">
 
 ```js
 import { mount } from 'cypress/vue'
@@ -505,18 +478,15 @@ Cypress.Commands.add('mount', (component, options = {}) => {
 })
 ```
 
-<Alert type="info">
+:::info
 
 The `getStore` method is a factory method that initializes Vuex and creates a
 new store. It is important that the store be initialized with each new test to
 ensure changes to the store don't affect other tests.
 
-</Alert>
+:::
 
-<code-group>
-<code-block label="TypeScript Typings" active>
-
-```ts
+```ts title=Typings
 import { mount } from 'cypress/vue'
 import { Store } from 'vuex'
 
@@ -563,8 +533,8 @@ it.only('User profile should display user name', () => {
 })
 ```
 
-</template>
-</code-group-vue2-vue3>
+</TabItem>
+</Tabs>
 
 ### Global Components
 
@@ -572,8 +542,8 @@ If you have components that are registered globally in the main application
 file, set them up in your mount command so your component will render them
 properly:
 
-<code-group-vue2-vue3>
-<template #vue2>
+<Tabs>
+<TabItem value="Vue 2">
 
 ```js
 import { mount } from 'cypress/vue'
@@ -592,8 +562,8 @@ Cypress.Commands.add('mount', (component, options = {}) => {
 })
 ```
 
-</template>
-<template #vue3>
+</TabItem>
+<TabItem value="Vue 3">
 
 ```js
 import { mount } from 'cypress/vue'
@@ -611,5 +581,5 @@ Cypress.Commands.add('mount', (component, options = {}) => {
 })
 ```
 
-</template>
-</code-group-vue2-vue3>
+</TabItem>
+</Tabs>

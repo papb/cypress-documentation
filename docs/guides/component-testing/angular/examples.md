@@ -1,11 +1,16 @@
 ---
-title: Custom Mount Commands for Angular
-sidebar_position: 60
+title: Angular Examples
+sidebar_position: 50
 ---
 
-In some instances you may find yourself doing repetitive work during mounting.
-In order to reduce boilerplate you may find it useful to create a custom mount
-command.
+## Custom Mount Commands
+
+### Customizing `cy.mount()`
+
+By default, `cy.mount()` is a simple passthrough to `mount()`, however, you can
+customize `cy.mount()` to fit your needs. For instance, you may find yourself
+doing repetitive work during mounting. In order to reduce boilerplate you may
+find it useful to create a custom mount command.
 
 ### Default Declarations, Providers, or Imports
 
@@ -18,7 +23,10 @@ Below is a sample that registers several default component declarations while
 still allowing additional ones to be passed in via the config param. The same
 pattern can also be applied to providers and module imports.
 
-```ts title=support/component.ts
+<code-group>
+<code-block label="support/component.ts" active>
+
+```ts
 import { Type } from '@angular/core'
 import { mount, MountConfig } from 'cypress/angular'
 import { ButtonComponent } from 'src/app/button/button.component'
@@ -46,6 +54,9 @@ function customMount<T>(component: string | Type<T>, config?: MountConfig<T>) {
 Cypress.Commands.add('mount', customMount)
 ```
 
+</code-block>
+</code-group>
+
 This custom mount command will allow you to skip manually passing in the
 `ButtonComponent` and `CardComponent` as declarations into each `cy.mount()`
 call.
@@ -54,11 +65,13 @@ call.
 
 Here is an example of defaulting `autoSpyOutputs` for every mounted component:
 
-```ts title=support/component.ts
+<code-group>
+<code-block label="support/component.ts" active>
+
+```ts
 declare global {
   namespace Cypress {
     interface Chainable {
-      //highlight-next-line
       mount: typeof mount
     }
   }
@@ -75,16 +88,12 @@ Cypress.Commands.add(
 )
 ```
 
-:::caution
+</code-block>
+</code-group>
+
+<Alert type="warning">
 
 The `autoSpyOutput` flag only works when passing in a component to the mount
 function. It currently does not work with the template syntax.
 
-:::
-
-## Conclusion
-
-At this point, you should be able to setup a complex application and mount
-components that use all of Angular's language features.
-
-Congrats! Happy building. 🎉
+</Alert>
