@@ -950,12 +950,12 @@ shipped. This issue is compounded further if you have dependent chains of
 branches waiting to be merged.
 
 One solution to this problem is
-[Smart Orchestration with the Cypress Dashboard](/guides/dashboard/smart-orchestration).
+[Smart Orchestration with Cypress Cloud](/guides/cloud/smart-orchestration).
 Using a combination of [parallelization](/guides/guides/parallelization),
 [load balancing](/guides/guides/parallelization#Balance-strategy),
-[test run cancellation](/guides/dashboard/smart-orchestration#Cancel-test-run-when-a-test-fails),
+[test run cancellation](/guides/cloud/smart-orchestration#Cancel-test-run-when-a-test-fails),
 and
-[running failed specs first](/guides/dashboard/smart-orchestration#Run-failed-specs-first),
+[running failed specs first](/guides/cloud/smart-orchestration#Run-failed-specs-first),
 Smart Orchestration maximizes your available compute resources & minimizes
 waste.
 
